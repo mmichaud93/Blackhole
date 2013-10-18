@@ -2,6 +2,8 @@
 public class Validate {
 	public static boolean IsValidIP(String ip) {
 		String word = "";
+		if(ip.equals("localhost"))
+			return true;
 		for(int i = 0; i < ip.length(); i++) {
 			// grab current char
 			char current_char = ip.charAt(i);
