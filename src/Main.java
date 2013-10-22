@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 
 public class Main {
 	public static String runningProgram = "Blackhole.jar";
+	public static String programPath = "./";
 
 	public static void main(String[] args) {
 		new Main();
@@ -16,6 +17,7 @@ public class Main {
 		try {
 			URI uri = Main.class.getProtectionDomain().getCodeSource().getLocation().toURI();
 			runningProgram = uri.getPath();
+			programPath = runningProgram.substring(1, runningProgram.lastIndexOf('/')+1);
 			runningProgram = runningProgram.substring(runningProgram.lastIndexOf('/')+1);
 		} catch (Exception e) {
 			e.printStackTrace();
