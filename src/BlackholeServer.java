@@ -45,7 +45,7 @@ public class BlackholeServer implements ActionListener {
 	}
 	public void SetUpServer() {
 		// create the server object and start it
-		server = new Server();
+		server = new Server(16384, 2048);
 		server.start();
 		
 		// give it the port to listen on
@@ -59,6 +59,9 @@ public class BlackholeServer implements ActionListener {
 		Register.RegisterObjects(server.getKryo());
 		// add the connection listener
 		server.addListener(new Listener() {
+			public void connected (Connection connection) {
+				
+			}
 			public void received(Connection connection, Object object) {
 				if (object instanceof Request) {
 					Request request = (Request) object;
@@ -80,6 +83,7 @@ public class BlackholeServer implements ActionListener {
 					    try { fileStream.write(request.buffer); } catch (IOException e) { e.printStackTrace(); }
 					}  else if(request.type ==  Request.DONE) {
 						// we are done, so you should say that
+						System.out.println("Client quit");
 						secondLabel.setText("");
 						label.setText("Waiting for Blackhole Clients");
 					}

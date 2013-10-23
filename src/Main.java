@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class Main {
 	public static String runningProgram = "Blackhole.jar";
 	public static String programPath = "./";
+	public static final int BUFFER_SIZE = 1024;
 
 	public static void main(String[] args) {
 		new Main();
