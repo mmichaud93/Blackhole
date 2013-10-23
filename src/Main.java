@@ -43,11 +43,11 @@ public class Main {
         switch(n) {
         case 0:
         	// launch client
-        	new BlackholeClient();
+        	new Client();
         	break;
         case 1:
         	// launch server
-        	new BlackholeServer();
+        	new Server();
         	break;
         }
 	}
